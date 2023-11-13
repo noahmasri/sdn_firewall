@@ -12,3 +12,6 @@ sudo mn --custom topology.py --topo customTopo,`<numero de switches>` --controll
 
 ## firewall
 ./pox/pox.py firewall log.level --DEBUG
+
+# POX
+Dado que para correr el controlador necesitabamos de los archivos 
