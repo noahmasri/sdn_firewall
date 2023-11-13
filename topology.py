@@ -3,8 +3,11 @@ from mininet.net import Mininet
 from mininet.cli import CLI
 import os
 
-class CustomTopo ( Topo ) :
+class CustomTopo (Topo) :
     def __init__ (self, num_switches):
+        if num_switches <= 0:
+            raise Exception("La cantidad de switches debe ser al menos 1")
+
         Topo.__init__(self)
         switches = []
         for i in range(num_switches):
