@@ -1,16 +1,17 @@
 from pox.lib.packet import ipv4, ethernet
-from pox.lib.addresses import EthAddr
+from pox.lib.addresses import EthAddr, IPAddr
 import pox.openflow.libopenflow_01 as of 
 
 class Rule():
-    def __init__(self, **kwargs):
-        self.dest_port = kwargs.get('dest_port', None)
-        self.origin_port = kwargs.get('origin_port', None)
-        self.dest_ip = kwargs.get('dest_ip', None) # IpAddr(kwargs['dest_ip']) if 'dest_ip' in kwargs else None
-        self.src_ip = kwargs.get('src_ip', None)
-        self.dest_mac = EthAddr(kwargs['dest_mac']) if 'dest_mac' in kwargs else None
-        self.src_mac = EthAddr(kwargs['src_mac']) if 'src_mac' in kwargs else None
-        self.trans_protocol = prot_from_string(kwargs.get('trans_protocol', None))
+    def __init__(self, rule_options):
+        self.dest_port = rule_options.get('dest_port', None)
+        self.origin_port = rule_options.get('origin_port', None)
+        self.dest_ip = (IPAddr(rule_options['dest_ip'][0]), rule_options['dest_ip'][1]) if 'dest_ip' in rule_options else None
+        self.src_ip = (IPAddr(rule_options['src_ip'][0]), rule_options['src_ip'][1]) if 'src_ip' in rule_options else None
+        self.dest_mac = EthAddr(rule_options['dest_mac']) if 'dest_mac' in rule_options else None
+        self.src_mac = EthAddr(rule_options['src_mac']) if 'src_mac' in rule_options else None
+        self.trans_protocol = prot_from_string(rule_options.get('trans_protocol', None))
+
     
     # parametros_json = {'dest_port': 80, 'origin_port': 2344, 'dest_ip': '192.168.1.1', 'src_ip': '192.168.1.2'}
     # mi_objeto = MiClase(**parametros_json)
@@ -46,7 +47,7 @@ class Rule():
         )
 
     def __repr__(self):
-         return "{}(\n  dest_port={},\n  origin_port={},\n  dest_ip={},\n  src_ip={},\n  dest_mac={},\n  src_mac={},\n  trans_protocol={},\n  blocked_pairs={}\n)".format(
+         return "{}(\n  dest_port={},\n  origin_port={},\n  dest_ip={},\n  src_ip={},\n  dest_mac={},\n  src_mac={},\n  trans_protocol={})".format(
             self.__class__.__name__,
             self.dest_port,
             self.origin_port,
@@ -55,7 +56,6 @@ class Rule():
             self.dest_mac,
             self.src_mac,
             self.trans_protocol,
-            self.blocked_pairs
         )
         
             
