@@ -3,16 +3,13 @@ sudo mn --custom topology.py --topo customTopo,`<numero de switches>` --controll
 
 # Para correr el controlador
 ## Default
-./pox/pox.py forwarding.l2_learning firewall (opcional --rules=`<path al archivo de reglas>` --blocking_switch=`<numero de switch bloqueado>`)
+./pox/pox.py forwarding.l2_learning firewall [--rules=`<path al archivo de reglas>`] [--blocking_switch=`<numero de switch bloqueado>`]
 
 ## Verbose 
-./pox/pox.py log.level --DEBUG log.color forwarding.l2_learning firewall
-
-## firewall
-./pox/pox.py firewall log.level --DEBUG
+./pox/pox.py log.level --DEBUG log.color forwarding.l2_learning firewall [--rules=`<path al archivo de reglas>`] [--blocking_switch=`<numero de switch bloqueado>`]
 
 # POX
-Dado que para correr el controlador necesitabamos de los archivos 
+Dado que para correr el controlador necesitabamos del codigo fuente de POX, clonamos su repositorio dentro de nuestra carpeta, y todo lo correspondiente a nuestro firewall, siguiendo con la informacion otorgada por el README de pox, se encuentra en la carpeta pox/ext. El codigo fue tomado de la pagina [ Repositorio POX](https://github.com/noxrepo/pox).
 
 # IPerf
 Comandos a usar:
