@@ -5,19 +5,19 @@ SERVER_LIFETIME = 20
 
 def protocol_to_flag(protocol):
     if protocol == "TCP":
-        return "-t"
+        return ""
     elif protocol == "UDP":
         return "-u"
 
     raise Exception("Protocol must be TCP or UDP") 
 
 def server(host, protocol):
-    res = host.cmd(f"iperf -s -u -p 80 -t {SERVER_LIFETIME}")
+    res = host.cmd(f"iperf -s {protocol_to_flag(protocol)} -p 80 -t {SERVER_LIFETIME}")
     print("---- SERVER RESULT ----")
     print(res)
 
 def client(host, server_ip, protocol):
-    res = host.cmd(f"iperf -c {server_ip} -u -p 80")
+    res = host.cmd(f"iperf -c {server_ip} {protocol_to_flag(protocol)} -p 80")
     print("---- CLIENT RESULT ----")
     print(res)
 
