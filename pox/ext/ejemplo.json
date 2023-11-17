@@ -4,10 +4,20 @@
         "trans_protocol": "UDP"
     },
     {
-        "src_ip": ["10.0.0.1", 32],
-        "src_port": 120   
+        "dest_port": 80,
+        "trans_protocol": "TCP"
     },
     {
-        "trans_protocol": "ICMP"
+        "src_ip": ["10.0.0.1", 32],
+        "src_port": 5001,
+        "trans_protocol": "UDP"   
+    },
+    {
+        "src_ip": ["10.0.0.3", 32],
+        "dest_ip": ["10.0.0.2", 32]
+    },
+    {
+        "src_ip": ["10.0.0.2", 32],
+        "dest_ip": ["10.0.0.3", 32]
     }
 ]

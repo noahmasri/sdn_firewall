@@ -11,12 +11,11 @@ log = core.getLogger ()
 def parse_rules(rules_path):
     rules_vec = []
     if rules_path is None:
-        return rules
+        return rules_vec
 
     log.debug("Reading rules file")
     
     with open(rules_path) as rules_file:
-        log.debug("rules file")
         rules = json.load(rules_file)
         for rule_line in rules:
             rule = Rule(rule_line)
