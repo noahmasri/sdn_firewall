@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append(os.getcwd() + '/..')
+sys.path.append(os.getcwd() + '/../..')
 
 from tp2_sdn_intro.topology import CustomTopo
 from mininet.node import RemoteController
