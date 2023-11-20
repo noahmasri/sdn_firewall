@@ -33,7 +33,7 @@ Para correr el comando usando scripts
 
 ### Verbose 
 ```bash
-./pox/pox.py log.level --DEBUG log.color forwarding.l2_learning firewall [--rules=`<path al archivo de reglas>`] [--blocking=`<numero de switch bloqueado>`]
+./pox/pox.py log.level --DEBUG log.color forwarding.l2_learning firewall [--rules=<arch-de-reglas>] [--blocking=<nro-switch-bloqueante>]
 ```
 
 ## POX
