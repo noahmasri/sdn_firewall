@@ -43,8 +43,3 @@ class Firewall(EventMixin):
 def launch (rules = None, blocking = 1):
     log.info("Starting")
     core.registerNew(Firewall, rules, blocking)
-
-# "pox/ext/ejemplo.json"
-
-# ./pox/pox.py fowarding/l2_learning firewall --rules=pox/ext/ejemplo.json
-
