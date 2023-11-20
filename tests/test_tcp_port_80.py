@@ -8,7 +8,7 @@ if __name__ == '__main__':
     server_host = net.hosts[0]
     client_host = net.hosts[-1]
 
-    run_iperf("TCP", net, 80, server_host, client_host)
+    run_iperf("TCP", 80, server_host, client_host)
 
     net.stop()
 

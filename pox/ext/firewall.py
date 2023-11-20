@@ -25,16 +25,16 @@ def parse_rules(rules_path):
 
 class Firewall(EventMixin):
     def __init__ (self, rules, blocking):
-        if set(core.openflow.connections.keys()) < blocking:
-            raise Exception("No such blocking switch")
         self.listenTo(core.openflow)
         self.rules = parse_rules(rules)
-        self.blocking_switch = blocking
+        self.blocking_switch = int(blocking)
+        log.info(self.blocking_switch) 
         log.debug(" Enabling Firewall Module ")
     
     def _handle_ConnectionUp(self, event):
         log.info("Switch %s has come up.", event.dpid)
         if event.dpid == self.blocking_switch:
+            log.info("Applying firewall in switch %i", self.blocking_switch)
             for rule in self.rules:
                 msg = of.ofp_flow_mod()
                 msg.match = rule.to_match()

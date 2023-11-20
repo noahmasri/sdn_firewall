@@ -1,1 +1,2 @@
-pox/ext/**.pyc
+__pycache__
+**.pyc

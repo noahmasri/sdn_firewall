@@ -21,7 +21,7 @@ def client(host, server_ip, protocol, port):
     print("---- CLIENT RESULT ----")
     print(res)
 
-def run_iperf(protocol, net, port, server_host, client_host):
+def run_iperf(protocol, port, server_host, client_host):
     print(f"\n\n--- Test {protocol} ---")
     server_handle = Thread(target=server, args=[server_host, protocol, port])
     client_handle = Thread(target=client, args=[client_host, server_host.IP(), protocol, port])

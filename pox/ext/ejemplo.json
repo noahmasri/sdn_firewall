@@ -9,7 +9,7 @@
     },
     {
         "src_ip": ["10.0.0.1", 32],
-        "src_port": 5001,
+        "dest_port": 5001,
         "trans_protocol": "UDP"   
     },
     {
