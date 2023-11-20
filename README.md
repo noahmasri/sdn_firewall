@@ -13,26 +13,26 @@ sudo bash scripts/<nombre_de_script>
 ```
 ## Para settear la topologia
 Para correr el comando normalmente:
-```ps
+```bash
 sudo mn --custom topology.py --topo customTopo,<cant-de-switches> --controller=remote,ip=127.0.0.1,port=6633
 ```
 Para correr el comando usando scripts:
-```ps
+```bash
 ./scripts/topo.sh <cant-de-switches>
 ```
 ## Para correr el controlador
 ### Default
 Para correr el comando normalmente:
-```ps
+```bash
 ./pox/pox.py forwarding.l2_learning firewall [--rules=<arch-de-reglas>] [--blocking=<nro-switch-bloqueante>]
 ```
 Para correr el comando usando scripts
-```ps
+```bash
 ./scripts/firewall.sh [--rules=<arch-de-reglas>] [--blocking=<nro-switch-bloqueante>]
 ```
 
 ### Verbose 
-```ps
+```bash
 ./pox/pox.py log.level --DEBUG log.color forwarding.l2_learning firewall [--rules=`<path al archivo de reglas>`] [--blocking=`<numero de switch bloqueado>`]
 ```
 
