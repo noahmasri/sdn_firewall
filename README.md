@@ -68,3 +68,5 @@ Se aplican al firewall las reglas otorgadas en la consigna, en donde:
 * se deben descartar todos los paquetes cuyo host de destino sea el 80.
 * se deben descartar todos los mensajes que provengan del host 1, tengan como puerto destino el 5001, y esten utilizando el protocolo UDP.
 * Se debe elegir dos hosts cualquiera (en este caso, h2 y h3), y los mismos no deben poder comunicarse de ninguna forma.
+
+Tambien se pueden ejecutar todos los tests en conjunto con `./scripts/run_tests.sh`
